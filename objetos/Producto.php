@@ -13,6 +13,12 @@ class Producto{
         .$this->PVP ;
     }
 
+    //metodo que no se puede sobreescribir(final)
+
+    public final function aumentaPrecio($cuanto){
+        $this->PVP = $this->PVP*(1+$cuanto/100);
+    }
+
     /**
      * Get the value of id
      */ 
