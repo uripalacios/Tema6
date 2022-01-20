@@ -2,6 +2,9 @@
 
 
 require_once "./Ordenador.php";
+require "./DAO.php";
+require "./otra.php";
+require "./ProductoDAO.php";
 
 $productogenerico = new Producto();
 $productogenerico->setId(1);
@@ -22,4 +25,11 @@ $ordenador1->muestra();
 
 $ordenador1->aumentaPrecio(5);
 $ordenador1->muestra();
+
+ProductoDAO::muestra();
+echo "<br>";
+//interfaces
+$pdao = new ProductoDAO();
+$pdao-> save($ordenador1);
+
 ?>
