@@ -70,9 +70,12 @@
 
     echo "<br>";
 
+    /*
     //Alias
     class_alias('Producto','Articulo');
     $art = new Articulo();
+    */
+
     //si un objeto que ya esta instanciado pertenece a una clase
     if($art instanceof Producto){
         echo "Pertenece";
