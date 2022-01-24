@@ -10,10 +10,26 @@
 <body>
     <header class="navbar">
         <h1>MVC</h1>
-    </header>
-    <main>
+        <!--Mostrar un boton de ir al login si no esta registrado 
+        y dos botones uno de perfil y otro de logout-->
         <?php
-        require $vistas['inicio'];
+        if(isset($_SESSION['validada'])){
+            ?>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+            <input type="submit" value="Registar" name="registro">
+        </form>
+        <?php
+            }
+        ?>
+    </header>
+    <main class="container">
+        <?php
+        //si hay alguna vista cargada desde el controlador la carga
+            if(!isset($_SESSION['vista']))
+                require_once $vistas['inicio'];
+            else{//sino se va siempre al inicio
+                require_once $_SESSION['vista'];
+            }
         ?>
     </main>
     <footer class="text_center">
