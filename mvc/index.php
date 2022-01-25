@@ -10,12 +10,8 @@ if(isset($_SESSION['validada'])){
 
 //si el usuario ha pedido ir al loggin
 else{
-    if(isset($_POST['login'])){
-        $controlador  = $controladores['login'];
-        require_once $controlador;
-        exit();
-    }else if(isset($_POST['registro'])){
-        $controlador = $controladores['registro'];
+    if(isset($_SESSION['pagina'])){
+        $controlador  = $controladores[$_SESSION['pagina']];
         require_once $controlador;
         exit();
     }
@@ -23,5 +19,6 @@ else{
 
 //si el usuario entra por primera vez
 $_SESSION['vista'] = $vistas['inicio'];
+$_SESSION['pagina'] = 'inicio';
 require $vistas['layout'];
 ?>

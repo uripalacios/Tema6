@@ -2,15 +2,14 @@
 
 class UsuarioDAO implements DAO{
         public static function findAll(){
-                $sql = "select * from usuarios";
+                $sql = "select * from usuario where codUsuario = ? and password = ?";
                 $consulta = ConexionBD::ejecutaConsulta($sql,[]);
                 $cont = 0;
+                $usuario = null;
                 while ($row = $consulta->fetchObject()) {
-                        $usuario  = new Usuario($row->codUsuario,$row->nombre,$row->pass,$row->perfil);
-                        $registros[$cont] = $usuario;
-                        $cont++;
+                        $usuario  = new Usuario($row->codUsuario,$row->nombre,$row->pass,$row->Perfil);
                 }
-                return $registros;
+                return $usuario;
         }
         //busca por id(busca por la clave primaria)
         public static function findById($id){
@@ -22,6 +21,18 @@ class UsuarioDAO implements DAO{
         public static function save($objeto){}
         //borrar
         public static function delete($objeto){}
+
+        public static function validaUser($user,$pass){
+                $sql = "select * from usuario where codUsuario = ? and password = ?";
+                $consulta = ConexionBD::ejecutaConsulta($sql,[$user,$pass]);
+                $cont = 0;
+                $usuario = null;
+                while ($row = $consulta->fetchObject()) {
+                        $usuario  = new Usuario($row->codUsuario,$row->nombre,$row->password,$row->Perfil);
+                }
+                return $usuario;
+            }
+        
 }
 
 ?>

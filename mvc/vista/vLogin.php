@@ -1,4 +1,8 @@
-
+<?php
+if(isset($_SESSION['mensaje'])){
+    echo $_SESSION['mensaje'];
+}
+?>
 
 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
     <label for="">Inicio Sesion</label>

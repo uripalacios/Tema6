@@ -25,3 +25,6 @@ class Usuario{
         $this->$name = $valor;
     }
 }
+
+
+
