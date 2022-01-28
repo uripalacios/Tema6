@@ -4,6 +4,9 @@ session_start();
 //si el usuario esta logeado inioLogeado
 if(isset($_SESSION['validada'])){
     //enviar a donde haga falta
+    $controlador = $controladores[$_SESSION['pagina']];
+    require_once $controlador;
+    exit();
 }
 
 //si el usuario esta logeado y ha solicitado algo

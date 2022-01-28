@@ -6,6 +6,8 @@ if(isset($_POST['registro'])){
     header('Location: index.php');
     exit();
 }
+
+
 //que haya rellenado y verifica si existe el usuario
 elseif(isset($_POST['iniciar'])){
     //el usuario
@@ -15,8 +17,7 @@ elseif(isset($_POST['iniciar'])){
     if($todoOk){
         $user = $_POST['nombre'];
         $pass = $_POST['pass'];
-        //$pass = hash("SHA256",$user.$pass);
-        $pass = "25c0af9a1dc924c388e66d0acf93ef54885d9783a03131e11f6a21e378e4f70a";
+        $pass = hash("SHA256",$pass);
 
         $usuario =  UsuarioDAO::validaUser($user,$pass);
         if($usuario != null){
