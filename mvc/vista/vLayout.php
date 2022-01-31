@@ -60,7 +60,7 @@
         </div>
     </main>
     <footer class="text-center">
-        Derecho de autora María
+        Derecho de autora Uriel
     </footer>
 
 </body>
