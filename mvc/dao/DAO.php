@@ -12,9 +12,9 @@
         //borrar
         public static function delete($objeto);
         //borrar por id
-        /*
-        public function deleteById($id);
-        */
+      
+        public static function deleteById($id);
+       
     }
 
 ?>
